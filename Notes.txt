@@ -1,1 +1,182 @@
+1. Data Collection
+Definition
+
+Data Collection is the process of gathering data from various sources for analysis and model building.
+
+Why is it needed?
+
+Machine Learning models learn patterns from historical data. Without data, a model cannot learn anything.
+
+"Data is the fuel of Machine Learning."
+
+The quality and quantity of data directly affect the performance of the model.
+
+Example
+
+For a house price prediction model, we need historical data such as:
+
+Area	Bedrooms	Price
+1000	2	2500000
+1500	3	4000000
+Sources of Data
+Databases
+CSV/Excel files
+APIs
+Websites (Web Scraping)
+Sensors and IoT devices
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. Data Preprocessing
+Definition
+
+Data Preprocessing is the process of cleaning, transforming, and organizing raw data into a suitable format for Machine Learning algorithms.
+
+Why is it needed?
+
+Real-world data is often:
+
+Incomplete
+Noisy
+Inconsistent
+Contains missing values
+
+Machine Learning algorithms cannot work efficiently with raw data.
+
+Tasks Performed
+Handling missing values
+Removing duplicates
+Encoding categorical variables
+Feature scaling
+Handling outliers
+Example
+Age	Salary
+25	30000
+30	?
+
+Missing salary values must be handled before training.
+
+(a) Basic Information
+df.head()
+df.info()
+df.describe()
+df.shape
+
+(b) Missing Values Check
+df.isnull().sum()
+Phir missing values ko handle karo:
+df.fillna(df.mean())
+
+(c) Duplicate Values
+df.duplicated().sum()
+df.drop_duplicates()
+
+(d) Categorical Data Encoding
+pd.get_dummies(df)
+
+(e) Feature Scaling
+from sklearn.preprocessing import StandardScaler
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3. Exploratory Data Analysis (EDA)
+Definition
+
+EDA is the process of analyzing and visualizing data to understand its characteristics, patterns, relationships, and anomalies.
+
+Why is it needed?
+
+EDA helps us answer questions such as:
+
+What is the distribution of data?
+Are there missing values?
+Are there any outliers?
+How are variables related?
+
+Without EDA, we cannot fully understand the dataset.
+
+Example
+
+Consider salary values:
+
+30000, 35000, 40000, 10000000
+
+The value 10000000 may be an outlier, which can be identified using EDA techniques.
+
+Common EDA Techniques
+Histogram
+Box Plot
+Scatter Plot
+Correlation Heatmap
+
+##Important Visualizations:
+Histogram
+df.hist()
+
+Data ka distribution dikhata hai.
+
+Box Plot
+import seaborn as sns
+sns.boxplot(data=df)
+
+Outliers detect karne ke liye.
+
+Scatter Plot
+sns.scatterplot(x='Age', y='Salary', data=df)
+
+Do variables ka relation dekhne ke liye.
+
+Correlation Heatmap
+sns.heatmap(df.corr(), annot=True)
+
+Features ke beech relation dekhne ke liye.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4. Feature Engineering
+Definition
+
+Feature Engineering is the process of creating new meaningful features from existing data.
+
+Example
+
+Date:
+
+20-06-2026
+
+Can be transformed into:
+
+Day = 20
+Month = 06
+Year = 2026
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+5. Feature Selection
+Definition
+
+Feature Selection is the process of selecting only the most relevant features for model training.
+
+Example
+
+For house price prediction:
+
+✔ Area
+✔ Number of Bedrooms
+✔ Location
+
+✘ House Color
+
+Why is it needed?
+
+Irrelevant features may:
+
+Increase training time
+Reduce model accuracy
+Cause overfitting
+Benefits
+Faster training
+Better accuracy
+Reduced overfitting
+
 
